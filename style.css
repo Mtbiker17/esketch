@@ -1,0 +1,62 @@
+html {
+    background-color: rgb(115, 154, 172);
+   z-index: -1;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+}
+#wrapper{
+    border-style: dashed;
+    display: block;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#main{
+    display: flex;
+    justify-content: left;
+    border-style: dotted;
+}
+#toolsContainer{
+    border-style: groove;
+    text-align: center;
+    margin: 0px 85px 0px 35px;
+    padding: 5px 15px 15px 15px;
+}
+#gridContainer{
+    border-style: groove;
+    text-align: center;
+    margin: 5px;
+    padding: 0px;
+}
+.colorBtnContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+.header{
+    text-align: center;
+    font-size: 300%;
+    border-style: solid;
+}
+.toolTitles {
+    font-size: 170%;
+    font-weight: bolder;
+    text-align: center;
+}
+.btn{
+    height: 30px;
+    border-radius: 50px;
+    border: 3px solid rgb(12, 12, 12);
+    width: 75%;
+    margin-bottom: 5px;
+}
+#gridWrapper{
+    border-style: dotted;
+    text-align: center;
+    margin: 0px 35px 0px 35px;
+    padding: 0;
+}
+.gridOptions{
+    
+}
