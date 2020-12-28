@@ -1,5 +1,5 @@
 html {
-    background-color: rgb(115, 154, 172);
+   background-color: #6b7c8f;
    z-index: -1;
 }
 body, html {
@@ -7,7 +7,6 @@ body, html {
     padding: 0;
 }
 #wrapper{
-    border-style: dashed;
     display: block;
     margin: 0;
     padding: 0;
@@ -16,28 +15,42 @@ body, html {
 #main{
     display: flex;
     justify-content: left;
-    border-style: dotted;
 }
 #toolsContainer{
-    border-style: groove;
+    border-radius: 20px;
+    border-style: solid;
+    box-shadow: 16px 13px 1px 4px #000000;
+    background-color: #f4c822;
     text-align: center;
-    margin: 0px 85px 0px 35px;
-    padding: 5px 15px 15px 15px;
+    margin: 10px 85px 10px 35px;
+    padding: 15px 15px 15px 15px;
+    font-family: 'Righteous', cursive, sans-serif;
+    color: black;
+    letter-spacing: 2px;
+    font-variant: small-caps;
+    text-shadow: 11px 5px 15px;
 }
 #gridContainer{
-    border-style: groove;
+    border-style: solid;
     text-align: center;
-    margin: 5px;
+    margin: 15px;
     padding: 0px;
+    height: 650px;
+    width: 850px;
 }
 .colorBtnContainer{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 .header{
     text-align: center;
-    font-size: 300%;
-    border-style: solid;
+    font-size: 400%;
+    font-family: 'Righteous', cursive, sans-serif;
+    height: 110px;
+    color: #f8871c;
+    text-shadow: 11px 8px 2px black;
+    letter-spacing: 30px;
 }
 .toolTitles {
     font-size: 170%;
@@ -45,18 +58,31 @@ body, html {
     text-align: center;
 }
 .btn{
-    height: 31px;
+    height: 35px;
     border-radius: 50px;
     border: 3px solid rgb(12, 12, 12);
     width: 75%;
     margin-bottom: 5px;
+    box-shadow: 16px 13px 1px 4px #000000;
+}
+.btn2{
+    height: 35px;
+    border-radius: 50px;
+    border: 3px solid rgb(12, 12, 12);
+    width: 25%;
+    margin-bottom: 5px;
+    box-shadow: 16px 13px 1px 4px #000000;
 }
 #gridWrapper{
-    border-style: dotted;
+    display: flex;
+    border-radius: 35px;
+    border-style: solid;
     text-align: center;
-    margin: 0px 35px 0px 35px;
+    margin: 10px 35px 10px 35px;
     padding: 0;
-}
-.gridOptions{
-    
+    width: 1400px;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4c822;
+    box-shadow: 16px 13px 1px 4px #000000;
 }
