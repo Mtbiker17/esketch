@@ -18,11 +18,11 @@
                     <p class = "toolTitles">Tools</p>
                     <div id = "colorSelectionContainer">
                         <div class = "colorBtnContainer">
-                            <button id = "colorSelectorBtn" class = "btn">Select Color</button>
+                            <button id = "colorSelectorBtn" class = "btn">Pencil Color:  <input type="color" value="#000000" id="selectColor"></button>
                             <p>Select Color</p>
                         </div>
                         <div class = "colorBtnContainer">
-                            <button id = "backgroundColorBtn" class = "btn">Background Color</button>
+                            <button id = "backgroundColorBtn" class = "btn">Background:   <input type="color" value="#FFFFFF" id="backgroundColor"></button>
                             <p>Select Background Color</p>
                         </div>
                     </div>
@@ -44,14 +44,14 @@
                     </div>
                 </div>
                 <div id = "gridWrapper">
-                    <div id = "gridContainer">
+                    <div id = "gridContainer" draggable="false">
                     </div>
                     <div class="rangeSlider"> 
                         <input type="range" min="16" max="100" value = "16"
-                                        class="mySlider" id="sliderRange"> 
+                                class="mySlider" id="sliderRange" onchange = "makeGrid(value, value)"> 
                       </div> 
-                      <p class = gridSize>Grid Size: <span id="demo"></span></p> 
-                    <button id = "gridLines" class = "btn2">Toggle Grid Lines</button>
+                      <p class = gridSize>Grid Size: <span id="size"></span></p> 
+                    <button id = "resetPage" class = "btn2">Reset Drawing</button>
                 </div>
             </div>
         </div>
