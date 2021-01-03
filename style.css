@@ -111,7 +111,7 @@ body, html {
 .grid-cell {
     padding: 0;
     margin: 0;
-    border: 1px solid #d0d0d0;
+    border: 1px solid rgb(172, 170, 170);
     text-align: center;
     background-color: white;
 }
