@@ -14,7 +14,7 @@ const coldBtn = document.querySelector('#coldBtn');
 let color = 'black';
 
 
-//shows grid size underneath slider
+//inputs grid size underneath slider
 gridSize.textContent = sliderRange.value + ` x ${sliderRange.value}`;
 sliderRange.oninput = function gridValue() {
     gridSize.textContent = `${this.value} x ${this.value}`;
@@ -41,29 +41,75 @@ function makeGrid (rows, cols) {
 }
 makeGrid(16, 16);
 
+
 function colorGrid() {
     switch (color){
         case 'eraserBtn':
             this.style.backgroundColor = '#ffffff';
             break;
         case 'shadeBtn':
-            this.style.backgroundColor = 'gray';
+            let currentShade = this.style.backgroundColor;
+            let matchShade = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;
+            let matchS = matchShade.exec(currentShade);
+                if (matchS !== null) {
+                    let r = (parseInt(matchS[1]) - 15);
+                    let g = (parseInt(matchS[2]) - 15);
+                    let b = (parseInt(matchS[3]) - 15);
+                    this.style.backgroundColor = 'rgb('+r+', '+g+', '+b+')';
+                }
             break;
         case 'tintBtn':
-            this.style.backgroundColor = 'yellow';
+            let currentTint = this.style.backgroundColor;
+            let matchTint = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;
+            let matchT = matchTint.exec(currentTint);
+                if (matchT !== null) {
+                    let r = (parseInt(matchT[1]) + 15);
+                    let g = (parseInt(matchT[2]) + 15);
+                    let b = (parseInt(matchT[3]) + 15);
+                    this.style.backgroundColor = 'rgb('+r+', '+g+', '+b+')';
+                }
             break;
         case 'pastelBtn':
-            this.style.backgroundColor = 'pink';
+            let randomPastel = Math.floor((Math.random() * 4) + 1);
+            console.log(randomPastel);
+            if(randomPastel === 1){
+                this.style.backgroundColor = '#FFB5E8';
+            } else if(randomPastel === 2){
+                this.style.backgroundColor = '#AFF8DB';
+            } else if(randomPastel === 3){
+                this.style.backgroundColor = '#85E3FF';
+            } else if (randomPastel === 4){
+                this.style.backgroundColor = '#FFABAB';
+            }
             break;
         case 'warmBtn':
-            this.style.backgroundColor = 'red';
+            let randomWarm = Math.floor((Math.random() * 4) + 1);
+            console.log(randomWarm);
+            if(randomWarm === 1){
+                this.style.backgroundColor = 'red';
+            } else if(randomWarm=== 2){
+                this.style.backgroundColor = '#E73927';
+            } else if(randomWarm === 3){
+                this.style.backgroundColor = '#EF7C24';
+            } else if (randomWarm === 4){
+                this.style.backgroundColor = '#EC6D10';
+            }
             break;
         case 'coldBtn':
-            this.style.backgroundColor = 'blue';
+            let randomCold = Math.floor((Math.random() * 4) + 1);
+            console.log(randomCold);
+            if(randomCold === 1){
+                this.style.backgroundColor = '#88c7dc';
+            } else if(randomCold === 2){
+                this.style.backgroundColor = '#3c89d0';
+            } else if(randomCold === 3){
+                this.style.backgroundColor = '#7ecfd4';
+            } else if (randomCold === 4){
+                this.style.backgroundColor = '#99fadc';
+            }
             break;
-        case 'defaultColor':
-            this.style.backgroundColor = 'color'
-            break;
+        case 'selectColor':
+            this.style.backgroundColor = selectColor.value;
     }
 }
 function changeColorInput(event){
@@ -89,48 +135,16 @@ function changeColorInput(event){
         case 'coldBtn':
             color = 'coldBtn';
             break;
+        case 'selectColor':
+            break;
     }
 }
+
 const buttons = document.querySelectorAll('button');
 buttons.forEach(colorButton => colorButton.addEventListener('click', changeColorInput));
 
-let userColor = gridContainer.querySelectorAll('div');
-selectColor.addEventListener('input', () => {
-    userColor.forEach(user => user.addEventListener('mouseover', () =>{
-        this.style.backgroundColor = selectColor.value;
-    }))
-});
-//function colorGrid() {
-  //  this.style.backgroundColor = selectColor.value;
-//}
-
-//function erase(){
-   // this.style.backgroundColor = '#ffffff';
-//}
-//function shade(){
-    //this.style.backgroundColor = 'gray';
-//}
-//function tint(){
-   // this.style.backgroundColor = 'yellow';
-//}
-//function pastel(){
-  //  this.style.backgroundColor = 'pink';
-//}
-//function warm(){
-  //  this.style.backgroundColor = 'red';
-//}
-//function cold(){
-  //  this.style.backgroundColor = 'blue';
-//}
-
-
 //Event Listeners//
 let colorCells = gridContainer.querySelectorAll('div')
-
-//user select color
-//selectColor.addEventListener('input', () => {
-//colorCells.forEach(userColor => userColor.addEventListener('mouseover', colorGrid));
-//})
 
 //change background button
 backgroundColor.addEventListener('input', () => {
@@ -138,35 +152,6 @@ backgroundColor.addEventListener('input', () => {
     colorCells.forEach(newBack => newBack.style.backgroundColor = selectBackground.value);
 });
 
-////erase button
-//eraserBtn.addEventListener('click', () => {
-//colorCells.forEach(newColor => newColor.addEventListener('mouseover', erase));
-//})
-
-//shade button
-//shadeBtn.addEventListener('click', () => {
-  //  colorCells.forEach(shader => shader.addEventListener('mouseover', shade));
-//})
-
-//tint button
-//tintBtn.addEventListener('click', () => {
-   // colorCells.forEach(tinter => tinter.addEventListener('mouseover', tint));
-//})
-
-//pastel button
-//pastelBtn.addEventListener('click', () => {
-  //  colorCells.forEach(pastelColor => pastelColor.addEventListener('mouseover', pastel));
-//})
-
-//warm spectrum button
-//warmBtn.addEventListener('click', () => {
-  //  colorCells.forEach(warmer => warmer.addEventListener('mouseover', warm));
-//})
-
-//cold spectrum button
-//coldBtn.addEventListener('click', () => {
-  //  colorCells.forEach(colder => colder.addEventListener('mouseover', cold));
-//})
 
 //reset button
 
