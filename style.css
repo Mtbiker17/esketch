@@ -23,7 +23,7 @@ body, html {
     background-color: #f4c822;
     text-align: center;
     margin: 10px 85px 10px 35px;
-    padding: 15px 15px 15px 15px;
+    padding: 20px;
     font-family: 'Righteous', cursive, sans-serif;
     color: black;
     letter-spacing: 2px;
@@ -32,15 +32,19 @@ body, html {
 }
 #gridContainer{
     border-style: solid;
+    background-color:'white';
     text-align: center;
     margin: 15px;
     padding: 0px;
     height: 650px;
     width: 850px;
     display: grid;
+    opacity: 1;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    
+}
+#selectP{
+    padding-left: 20px;
 }
 .colorBtnContainer{
     display: flex;
