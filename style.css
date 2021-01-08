@@ -8,8 +8,6 @@ body, html {
 }
 #wrapper{
     display: block;
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 #main{
@@ -35,7 +33,6 @@ body, html {
     background-color:'white';
     text-align: center;
     margin: 15px;
-    padding: 0px;
     height: 650px;
     width: 850px;
     display: grid;
@@ -55,7 +52,7 @@ body, html {
     text-align: center;
     font-size: 300%;
     font-family: 'Righteous', cursive, sans-serif;
-    height: 110px;
+    height: 80px;
     color: #f8871c;
     text-shadow: 11px 8px 2px black;
     letter-spacing: 30px;
@@ -97,18 +94,18 @@ body, html {
 #footerContainer{
     margin-top: 10px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     height: 100px;
     width: auto;
+    font-family: 'Righteous', cursive, sans-serif;
+    font-size: larger;
 }
 #pageTitle{
-    margin: 10px
+    margin: 15px
 }
 .btn:hover{
-    transition-duration: .7s;
-    background: #f8871c;
-}
-.btn2:hover{
     transition-duration: .7s;
     background: #f8871c;
 }
@@ -129,7 +126,4 @@ body, html {
     background: red;
     transition: 0.2s;
     border-radius: 7px;
-}
-.black{
-    background-color: #000000;
 }
