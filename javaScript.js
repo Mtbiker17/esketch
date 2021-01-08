@@ -13,7 +13,6 @@ const warmBtn = document.querySelector('#warmBtn');
 const coldBtn = document.querySelector('#coldBtn');
 let color = 'black';
 
-
 //inputs grid size underneath slider
 gridSize.textContent = sliderRange.value + ` x ${sliderRange.value}`;
 sliderRange.oninput = function gridValue() {
@@ -28,6 +27,8 @@ function removeAllChildNodes(parent){
 };
 
 //add a div child element for given number of rows and cols;
+//set CSS variables to amount of rows and columns for "grid-template" style in CSS file
+//loop mouseover event to run func colorGrid on each created 'div'
 function makeGrid (rows, cols) {
     removeAllChildNodes(gridContainer)
     gridContainer.style.setProperty('--grid-rows', rows);
@@ -41,7 +42,9 @@ function makeGrid (rows, cols) {
 }
 makeGrid(16, 16);
 
-
+//switch statement to execute color options on 'divs'
+//color is passed from click event in changeColorInput function
+//'this' is referring to the 'div'(object) on mouseover event
 function colorGrid() {
     switch (color){
         case 'eraserBtn':
@@ -49,9 +52,12 @@ function colorGrid() {
             break;
         case 'shadeBtn':
             let currentShade = this.style.backgroundColor;
+            //regex to identify the three rbg values passed from current 'div'
+            //use .exec, not .match because we are capturing rgb values and it is executed each time
             let matchShade = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;
             let matchS = matchShade.exec(currentShade);
                 if (matchS !== null) {
+                    //increments current rgb values by 15(hence darkening current color)
                     let r = (parseInt(matchS[1]) - 15);
                     let g = (parseInt(matchS[2]) - 15);
                     let b = (parseInt(matchS[3]) - 15);
@@ -71,7 +77,6 @@ function colorGrid() {
             break;
         case 'pastelBtn':
             let randomPastel = Math.floor((Math.random() * 4) + 1);
-            console.log(randomPastel);
             if(randomPastel === 1){
                 this.style.backgroundColor = '#FFB5E8';
             } else if(randomPastel === 2){
@@ -84,9 +89,8 @@ function colorGrid() {
             break;
         case 'warmBtn':
             let randomWarm = Math.floor((Math.random() * 4) + 1);
-            console.log(randomWarm);
             if(randomWarm === 1){
-                this.style.backgroundColor = 'red';
+                this.style.backgroundColor = '#FF0000';
             } else if(randomWarm=== 2){
                 this.style.backgroundColor = '#E73927';
             } else if(randomWarm === 3){
@@ -97,7 +101,6 @@ function colorGrid() {
             break;
         case 'coldBtn':
             let randomCold = Math.floor((Math.random() * 4) + 1);
-            console.log(randomCold);
             if(randomCold === 1){
                 this.style.backgroundColor = '#88c7dc';
             } else if(randomCold === 2){
@@ -112,6 +115,8 @@ function colorGrid() {
             this.style.backgroundColor = selectColor.value;
     }
 }
+//function to identify button ID on click event 
+//switch statement to pass new color variable to colorGrid function
 function changeColorInput(event){
     switch (event.target.id){
         case 'eraserBtn':
@@ -135,26 +140,22 @@ function changeColorInput(event){
         case 'coldBtn':
             color = 'coldBtn';
             break;
-        case 'selectColor':
-            break;
     }
 }
 
+//Event Listeners//
+//run click event on all buttons, run changeColorInput function on click
 const buttons = document.querySelectorAll('button');
 buttons.forEach(colorButton => colorButton.addEventListener('click', changeColorInput));
 
-//Event Listeners//
-let colorCells = gridContainer.querySelectorAll('div')
-
 //change background button
+let colorCells = gridContainer.querySelectorAll('div')
 backgroundColor.addEventListener('input', () => {
     let colorCells = gridContainer.querySelectorAll('div');
     colorCells.forEach(newBack => newBack.style.backgroundColor = selectBackground.value);
 });
 
-
 //reset button
-
 resetPage.addEventListener('click', () => {
     let colorCells = gridContainer.querySelectorAll('div');
     colorCells.forEach(newColor => newColor.style.backgroundColor = '#FFFFFF');
